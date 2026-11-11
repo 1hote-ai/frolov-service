@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Фролов Сервис — Автотехцентр в Видном | Ремонт и ТО от 1 500 ₽</title>
+  <meta name="description" content="Автотехцентр Фролов Сервис в г. Видное, Центральная ул., 30. Честный ремонт и ТО китайских, европейских и корейских авто. Рейтинг 4.9 на Яндекс Картах. Ежедневно с 09:00 до 19:00.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0d14;
+      --bg-card: #121722;
+      --bg-card-hover: #182030;
+      --border-color: #1f2738;
+      --border-accent: #2c3850;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --accent-amber: #f59e0b;
+      --accent-amber-glow: rgba(245, 158, 11, 0.15);
+      --accent-blue: #3b82f6;
+      --whatsapp-green: #22c55e;
+      --whatsapp-hover: #16a34a;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      padding-bottom: 90px; /* Space for sticky mobile bar */
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 680px; /* Optimized mobile/tablet container */
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* TOP BAR */
+    .topbar {
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(10, 13, 20, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 12px 0;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border: 1px solid var(--border-accent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-logo svg {
+      width: 22px;
+      height: 22px;
+      fill: var(--accent-amber);
+    }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      padding: 5px 10px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #4ade80;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #22c55e;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    /* HERO SECTION */
+    .hero {
+      padding: 24px 0 20px;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .badge-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .badge-rating svg {
+      width: 14px;
+      height: 14px;
+      fill: #f59e0b;
+    }
+
+    .badge-award {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #fbbf24;
+    }
+
+    .hero-title {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    /* HERO CARDS PREVIEW GRID */
+    .hero-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .hero-photo-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      aspect-ratio: 4/3;
+    }
+
+    .hero-photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-photo-tag {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      background: rgba(10, 13, 20, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* QUICK STATS */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 12px 10px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .stat-val {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent-amber);
+      line-height: 1.1;
+    }
+
+    .stat-lbl {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      line-height: 1.2;
+    }
+
+    /* SECTION TITLES */
+    .section-head {
+      margin-bottom: 14px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .section-title {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .section-sub {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    /* SPECIAL OFFER BANNER (CHANGAN ZIC) */
+    .special-card {
+      background: linear-gradient(145deg, #182234, #0f172a);
+      border: 1px solid #3b82f6;
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .special-badge {
+      display: inline-block;
+      background: #2563eb;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      letter-spacing: 0.05em;
+    }
+
+    .special-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      line-height: 1.25;
+    }
+
+    .special-desc {
+      font-size: 13px;
+      color: #cbd5e1;
+      margin-bottom: 14px;
+      line-height: 1.45;
+    }
+
+    .special-price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 12px;
+    }
+
+    .special-price {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 800;
+      color: #60a5fa;
+    }
+
+    .special-btn {
+      background: var(--whatsapp-green);
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* SERVICES LIST */
+    .services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .service-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .service-item:active {
+      background: var(--bg-card-hover);
+      border-color: var(--border-accent);
+    }
+
+    .service-info {
+      flex: 1;
+      padding-right: 12px;
+    }
+
+    .service-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+
+    .service-detail {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    .service-price-block {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .service-price {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent-amber);
+    }
+
+    .service-btn {
+      font-size: 11px;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      justify-content: flex-end;
+      margin-top: 2px;
+    }
+
+    /* CALCULATOR WIDGET */
+    .calc-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 28px;
+    }
+
+    .calc-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .chips-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .chip-btn {
+      background: #0f131a;
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 9px 6px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .chip-btn.active {
+      background: #1e293b;
+      border-color: var(--accent-amber);
+      color: #fff;
+    }
+
+    .calc-result {
+      background: #0a0d14;
+      border-radius: 10px;
+      padding: 14px;
+      border: 1px dashed var(--border-accent);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .calc-res-lbl {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .calc-res-price {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--accent-amber);
+    }
+
+    .calc-cta {
+      display: block;
+      width: 100%;
+      background: var(--whatsapp-green);
+      color: #fff;
+      text-align: center;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    /* REVIEWS BLOCK */
+    .reviews-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .review-author {
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .review-stars {
+      color: #f59e0b;
+      font-size: 11px;
+    }
+
+    .review-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* CONTACTS & ADDRESS */
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .contact-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-icon {
+      width: 32px;
+      height: 32px;
+      background: #1e293b;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-icon svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--accent-amber);
+    }
+
+    .contact-info-title {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .contact-info-val {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .map-btn-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .map-btn {
+      background: #1e293b;
+      border: 1px solid var(--border-color);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      display: block;
+    }
+
+    /* DEMO WATERMARK FOOTER */
+    .footer-disclaimer {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 11px;
+      color: var(--text-dim);
+      border-top: 1px solid var(--border-color);
+      margin-top: 20px;
+    }
+
+    /* STICKY BOTTOM ACTION BAR (MOBILE FIRST) */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10, 13, 20, 0.94);
+      backdrop-filter: blur(14px);
+      border-top: 1px solid var(--border-accent);
+      padding: 10px 16px;
+      padding-bottom: max(10px, env(safe-area-inset-bottom));
+      z-index: 100;
+    }
+
+    .sticky-bar-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 10px;
+    }
+
+    .btn-wa-main {
+      background: var(--whatsapp-green);
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 14px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(34, 197, 94, 0.35);
+    }
+
+    .btn-wa-main svg {
+      width: 18px;
+      height: 18px;
+      fill: #fff;
+    }
+
+    .btn-call-sub {
+      background: #1e293b;
+      border: 1px solid var(--border-accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 13px;
+      padding: 14px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .btn-call-sub svg {
+      width: 15px;
+      height: 15px;
+      fill: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24">
+            <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.04 3H5.81l1.04-3zM19 17H5v-4.66l.12-.34h13.77l.11.34V17z"/>
+            <circle cx="7.5" cy="14.5" r="1.5"/>
+            <circle cx="16.5" cy="14.5" r="1.5"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-title">ФРОЛОВ СЕРВИС</div>
+          <div class="brand-subtitle">Видное, Центральная 30</div>
+        </div>
+      </div>
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span>До 19:00</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-badge-row">
+        <div class="badge-rating">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <span>4.9 (309 отзывов)</span>
+        </div>
+        <div class="badge-award">
+          <span>★ Хорошее место 2026</span>
+        </div>
+      </div>
+
+      <h1 class="hero-title">Профессиональный ремонт и ТО автомобилей в Видном</h1>
+      <p class="hero-subtitle">Специализированное регламентное обслуживание китайских марок (Changan, Geely, Haval, Chery, Tank), европейских и корейских авто с сертифицированными материалами.</p>
+
+      <!-- REAL CARS IN WORKSHOP GALLERY -->
+      <div class="hero-gallery">
+        <div class="hero-photo-card">
+          <img src="assets/changan.jpg" alt="Обслуживание Changan UNI-K в Фролов Сервис">
+          <div class="hero-photo-tag">Changan UNI-K • ТО</div>
+        </div>
+        <div class="hero-photo-card">
+          <img src="assets/porsche.jpg" alt="Диагностика Porsche в Фролов Сервис">
+          <div class="hero-photo-tag">Porsche GT3 • Сервис</div>
+        </div>
+        <div class="hero-photo-card">
+          <img src="assets/tank.jpg" alt="Подготовка Tank 300 в Фролов Сервис">
+          <div class="hero-photo-tag">Tank 300 • Подвеска</div>
+        </div>
+        <div class="hero-photo-card">
+          <img src="assets/bmw.jpg" alt="Ремонт BMW M4 в Фролов Сервис">
+          <div class="hero-photo-tag">BMW M4 • Диагностика</div>
+        </div>
+      </div>
+
+      <!-- KEY ADVANTAGES -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-val">100%</div>
+          <div class="stat-lbl">Оригинальные масла и фильтры</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">4.9 ★</div>
+          <div class="stat-lbl">Яндекс Карты (309 оценок)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">0 ₽</div>
+          <div class="stat-lbl">Скрытых доплат по смете</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECIAL OFFER (CHANGAN ZIC 9999) -->
+    <section>
+      <div class="special-card">
+        <span class="special-badge">Спецпредложение недели</span>
+        <h2 class="special-title">Комплексное ТО CHANGAN с маслом ZIC</h2>
+        <p class="special-desc">В стоимость включен полный комплект оригинальных фильтров, 5 литров премиального синтетического масла ZIC TOP LS 5W-30 и работа мастера.</p>
+        <div class="special-price-row">
+          <div>
+            <div style="font-size: 11px; color: #93c5fd; text-transform: uppercase; font-weight: 700;">Цена под ключ</div>
+            <div class="special-price">9 999 ₽</div>
+          </div>
+          <a href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%A2%D0%9E%20Changan%20%D1%81%20%D0%BC%D0%B0%D1%81%D0%BB%D0%BE%D0%BC%20ZIC%20%D0%B7%D0%B0%209%20999%20%E2%82%BD" class="special-btn">
+            Записаться в WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE SERVICE CALCULATOR -->
+    <section>
+      <div class="section-head">
+        <h2 class="section-title">Калькулятор записи</h2>
+        <span class="section-sub">Расчёт за 10 секунд</span>
+      </div>
+
+      <div class="calc-box">
+        <span class="calc-label">1. Выберите марку автомобиля:</span>
+        <div class="chips-grid" id="brandGrid">
+          <button class="chip-btn active" data-brand="Changan / Haval">Changan / Haval</button>
+          <button class="chip-btn" data-brand="Geely / Chery">Geely / Chery</button>
+          <button class="chip-btn" data-brand="Tank / Exeed">Tank / Exeed</button>
+          <button class="chip-btn" data-brand="Kia / Hyundai">Kia / Hyundai</button>
+          <button class="chip-btn" data-brand="VAG / BMW">VAG / BMW</button>
+          <button class="chip-btn" data-brand="Другая марка">Другая марка</button>
+        </div>
+
+        <span class="calc-label">2. Выберите тип услуги:</span>
+        <div class="chips-grid" id="serviceGrid">
+          <button class="chip-btn active" data-service="Плановое ТО" data-price="от 6 000 ₽">Плановое ТО</button>
+          <button class="chip-btn" data-service="Заправка кондиционера" data-price="1 500 ₽">Кондиционер</button>
+          <button class="chip-btn" data-service="Диагностика систем" data-price="1 000 ₽">Диагностика</button>
+          <button class="chip-btn" data-service="Ремонт подвески" data-price="от 2 000 ₽">Подвеска / тормоза</button>
+          <button class="chip-btn" data-service="Ремонт двигателя" data-price="от 25 000 ₽">Ремонт ДВС</button>
+          <button class="chip-btn" data-service="Вскрытие замков авто" data-price="5 000 ₽">Вскрытие авто</button>
+        </div>
+
+        <div class="calc-result">
+          <div>
+            <div class="calc-res-lbl" id="calcSummary">Changan / Haval • Плановое ТО</div>
+            <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Ориентировочная стоимость:</div>
+          </div>
+          <div class="calc-res-price" id="calcPrice">от 6 000 ₽</div>
+        </div>
+
+        <a id="calcWhatsappLink" href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%B2%20%D0%A4%D1%80%D0%BE%D0%BB%D0%BE%D0%B2%20%D0%A1%D0%B5%D1%80%D0%B2%D0%B8%D1%81:%20Changan%20/%20Haval%20%E2%80%A2%20%D0%9F%D0%BB%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%A2%D0%9E%20(%D0%BE%D1%82%206%20000%20%E2%82%BD)" class="calc-cta">
+          Подтвердить расчёт в WhatsApp ➔
+        </a>
+      </div>
+    </section>
+
+    <!-- SERVICES AND PRICES LIST -->
+    <section>
+      <div class="section-head">
+        <h2 class="section-title">Прайс-лист услуг</h2>
+        <span class="section-sub">Фиксированные цены</span>
+      </div>
+
+      <div class="services-list">
+        <a href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BF%D0%BE%D1%81%D1%82%D0%B3%D0%B0%D1%80%D0%B0%D0%BD%D1%82%D0%B8%D0%B9%D0%BD%D0%BE%D0%B5%20%D0%A2%D0%9E" class="service-item">
+          <div class="service-info">
+            <div class="service-name">Постгарантийное обслуживание (ТО)</div>
+            <div class="service-detail">Замена масла и фильтров с сертифицированными расходниками</div>
+          </div>
+          <div class="service-price-block">
+            <div class="service-price">от 6 001 ₽</div>
+            <div class="service-btn">Записаться ➔</div>
+          </div>
+        </a>
+
+        <a href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BA%D0%BE%D0%BD%D0%B4%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D1%80" class="service-item">
+          <div class="service-info">
+            <div class="service-name">Заправка и диагностика кондиционеров</div>
+            <div class="service-detail">Автоматическая станция, вакуумирование и проверка герметичности</div>
+          </div>
+          <div class="service-price-block">
+            <div class="service-price">1 500 ₽</div>
+            <div class="service-btn">Записаться ➔</div>
+          </div>
+        </a>
+
+        <a href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A2%D1%80%D0%B5%D0%B1%D1%83%D0%B5%D1%82%D1%81%D1%8F%20%D0%BA%D0%B0%D0%BF%D0%B8%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%20%D0%B4%D0%B2%D0%B8%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8F" class="service-item">
+          <div class="service-info">
+            <div class="service-name">Капитальный ремонт двигателей</div>
+            <div class="service-detail">Дефектовка, расточка, замена цепей ГРМ и поршневой группы</div>
+          </div>
+          <div class="service-price-block">
+            <div class="service-price">от 25 000 ₽</div>
+            <div class="service-btn">Записаться ➔</div>
+          </div>
+        </a>
+
+        <a href="https://wa.me/79055791077?text=%D0%A1%D1%80%D0%BE%D1%87%D0%BD%D0%BE!%20%D0%A2%D1%80%D0%B5%D0%B1%D1%83%D0%B5%D1%82%D1%81%D1%8F%20%D0%B0%D0%BA%D0%BA%D1%83%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B5%20%D0%B2%D1%81%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B5%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8F" class="service-item">
+          <div class="service-info">
+            <div class="service-name">Выездное вскрытие авто без повреждений</div>
+            <div class="service-detail">Оперативный выезд по Видному и ЛГО. Запуск при севшем АКБ</div>
+          </div>
+          <div class="service-price-block">
+            <div class="service-price">5 000 ₽</div>
+            <div class="service-btn">Вызвать ➔</div>
+          </div>
+        </a>
+
+        <a href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D1%83%D0%B6%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D1%8F%20%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0" class="service-item">
+          <div class="service-info">
+            <div class="service-name">Компьютерная диагностика ЭБУ</div>
+            <div class="service-detail">Глубокое чтение блоков, поиск плавающих неисправностей</div>
+          </div>
+          <div class="service-price-block">
+            <div class="service-price">1 000 ₽</div>
+            <div class="service-btn">Записаться ➔</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- REAL REVIEWS FROM YANDEX MAPS -->
+    <section>
+      <div class="section-head">
+        <h2 class="section-title">Отзывы клиентов</h2>
+        <span class="section-sub">Яндекс Карты 4.9</span>
+      </div>
+
+      <div class="reviews-list">
+        <div class="review-card">
+          <div class="review-header">
+            <span class="review-author">Алексей М. (Changan CS55)</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <p class="review-text">«Делал плановое ТО на китайце. Масло залили проверенное, фильтра оригинал. Быстро, аккуратно и в два раза адекватнее по цене, чем у официалов. Рекомендую мужиков.»</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+            <span class="review-author">Дмитрий В. (BMW 3-series)</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <p class="review-text">«Приезжал на диагностику и заправку кондиционера. Оборудование новое, мастер всё показал и объяснил. Никаких навязываний лишних услуг.»</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+            <span class="review-author">Сергей К. (Haval F7)</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <p class="review-text">«Отличный честный сервис в Видном. На Центральной 30 всегда чисто в боксах, мастера грамотные. Теперь обслуживаюсь только здесь.»</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT CARD -->
+    <section>
+      <div class="section-head">
+        <h2 class="section-title">Контакты и адрес</h2>
+        <span class="section-sub">г. Видное</span>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div>
+            <div class="contact-info-title">Адрес техцентра:</div>
+            <div class="contact-info-val">Московская обл., г. Видное, Центральная ул., 30</div>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          </div>
+          <div>
+            <div class="contact-info-title">Режим работы:</div>
+            <div class="contact-info-val">Ежедневно: 09:00 – 19:00 (без выходных)</div>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <div>
+            <div class="contact-info-title">Телефоны для записи:</div>
+            <div class="contact-info-val">+7 (905) 579-10-77 &bull; +7 (901) 420-91-34</div>
+          </div>
+        </div>
+
+        <div class="map-btn-row">
+          <a href="https://yandex.ru/maps/org/frolov_servis/1780546906/" target="_blank" class="map-btn">
+            Открыть на Яндекс Картах
+          </a>
+          <a href="https://yandex.ru/navi/?whatshere%5Bpoint%5D=37.722805%2C55.559865&whatshere%5Bzoom%5D=17" target="_blank" class="map-btn">
+            Построить маршрут
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER WATERMARK -->
+    <footer class="footer-disclaimer">
+      <p>Концепт современного мобильного сайта разработан специально для автотехцентра «Фролов Сервис» (г. Видное, Центральная 30).</p>
+      <p style="margin-top: 4px;">Все права на фотоматериалы и товарные знаки принадлежат их владельцам.</p>
+    </footer>
+
+  </main>
+
+  <!-- STICKY MOBILE ACTION BAR (Always visible on phone) -->
+  <aside class="sticky-bar">
+    <div class="sticky-bar-inner">
+      <a href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D1%82%D1%8C%20%D0%BF%D0%BE%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%D1%83%20%D0%B8%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%B2%20%D0%A4%D1%80%D0%BE%D0%BB%D0%BE%D0%B2%20%D0%A1%D0%B5%D1%80%D0%B2%D0%B8%D1%81" class="btn-wa-main">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.28-2.42 5.83a8.19 8.19 0 01-5.82 2.42c-1.46 0-2.88-.39-4.14-1.12l-.3-.18-3.12.82.83-3.04-.19-.31a8.216 8.216 0 01-1.26-4.42c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.49-1.4-1.74-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/></svg>
+        <span>Записаться в WhatsApp</span>
+      </a>
+      <a href="tel:+79055791077" class="btn-call-sub">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <span>Звонок</span>
+      </a>
+    </div>
+  </aside>
+
+  <script>
+    // INTERACTIVE CALCULATOR LOGIC
+    let currentBrand = "Changan / Haval";
+    let currentService = "Плановое ТО";
+    let currentPrice = "от 6 000 ₽";
+
+    const brandGrid = document.getElementById("brandGrid");
+    const serviceGrid = document.getElementById("serviceGrid");
+    const calcSummary = document.getElementById("calcSummary");
+    const calcPrice = document.getElementById("calcPrice");
+    const calcWhatsappLink = document.getElementById("calcWhatsappLink");
+
+    function updateCalc() {
+      calcSummary.textContent = `${currentBrand} • ${currentService}`;
+      calcPrice.textContent = currentPrice;
+      const text = `Здравствуйте! Хочу записаться в Фролов Сервис: ${currentBrand} • ${currentService} (${currentPrice})`;
+      calcWhatsappLink.href = `https://wa.me/79055791077?text=${encodeURIComponent(text)}`;
+    }
+
+    brandGrid.addEventListener("click", (e) => {
+      const btn = e.target.closest(".chip-btn");
+      if (!btn) return;
+      brandGrid.querySelectorAll(".chip-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      currentBrand = btn.dataset.brand;
+      updateCalc();
+    });
+
+    serviceGrid.addEventListener("click", (e) => {
+      const btn = e.target.closest(".chip-btn");
+      if (!btn) return;
+      serviceGrid.querySelectorAll(".chip-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      currentService = btn.dataset.service;
+      currentPrice = btn.dataset.price;
+      updateCalc();
+    });
+  </script>
+</body>
+</html>
