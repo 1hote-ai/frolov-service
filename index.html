@@ -10,15 +10,16 @@
   <style>
     :root {
       --bg: #090b10;
-      --card: #121620;
-      --card-hover: #181e2b;
-      --border: #1e2636;
+      --card: #121622;
+      --card-hover: #171d2b;
+      --border: #1e2638;
+      --border-light: #2a354c;
       --text: #f8fafc;
       --muted: #94a3b8;
       --dim: #64748b;
       --amber: #f59e0b;
       --green: #22c55e;
-      --green-glow: rgba(34, 197, 94, 0.18);
+      --green-glow: rgba(34, 197, 94, 0.2);
       --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --mono: 'JetBrains Mono', monospace;
     }
@@ -29,18 +30,27 @@
       background: var(--bg);
       color: var(--text);
       font-family: var(--font);
-      line-height: 1.4;
-      padding-bottom: 88px;
+      line-height: 1.45;
+      padding-bottom: 84px;
       overflow-x: hidden;
+    }
+
+    @media (min-width: 900px) {
+      body { padding-bottom: 40px; }
     }
 
     a { color: inherit; text-decoration: none; }
 
-    .wrap {
+    /* RESPONSIVE CONTAINER */
+    .container {
       width: 100%;
-      max-width: 480px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0 16px;
+    }
+
+    @media (min-width: 768px) {
+      .container { padding: 0 24px; }
     }
 
     /* TOP HEADER */
@@ -48,18 +58,23 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(9, 11, 16, 0.92);
-      backdrop-filter: blur(12px);
+      background: rgba(9, 11, 16, 0.94);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
-      padding: 12px 0;
+      padding: 14px 0;
     }
-    .nav-row {
+    .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
     .brand-title {
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 800;
       letter-spacing: -0.3px;
     }
@@ -68,102 +83,129 @@
       color: var(--muted);
       margin-top: 1px;
     }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
     .status-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 4px 10px;
+      padding: 5px 12px;
       background: rgba(34, 197, 94, 0.1);
       border: 1px solid rgba(34, 197, 94, 0.25);
       border-radius: 20px;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 600;
       color: #4ade80;
     }
     .dot {
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
       background: var(--green);
       border-radius: 50%;
-      box-shadow: 0 0 6px var(--green);
+      box-shadow: 0 0 8px var(--green);
+    }
+    .nav-phone {
+      display: none;
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .nav-wa-btn {
+      display: none;
+      align-items: center;
+      gap: 7px;
+      background: var(--green);
+      color: #06240d;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px var(--green-glow);
+      transition: transform 0.15s ease;
+    }
+    .nav-wa-btn:hover { transform: translateY(-1px); }
+
+    @media (min-width: 900px) {
+      .nav-phone { display: block; }
+      .nav-wa-btn { display: inline-flex; }
     }
 
-    /* HERO */
+    /* HERO SECTION */
     .hero {
-      padding: 20px 0 14px;
+      padding: 24px 0 20px;
     }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .hero { padding: 44px 0 32px; }
+      .hero-grid {
+        grid-template-columns: 1.15fr 1fr;
+        gap: 36px;
+      }
+    }
+
     .hero-meta {
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       flex-wrap: wrap;
     }
     .badge-rating {
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      background: #181d28;
-      border: 1px solid #2a3447;
-      padding: 4px 10px;
-      border-radius: 6px;
+      background: #181d2a;
+      border: 1px solid #283449;
+      padding: 5px 12px;
+      border-radius: 8px;
       font-size: 12px;
       font-weight: 700;
     }
     .badge-rating svg {
-      width: 13px;
-      height: 13px;
+      width: 14px;
+      height: 14px;
       fill: var(--amber);
     }
     .badge-award {
       background: rgba(245, 158, 11, 0.12);
       color: #fbbf24;
       border: 1px solid rgba(245, 158, 11, 0.25);
-      padding: 4px 8px;
-      border-radius: 6px;
+      padding: 5px 10px;
+      border-radius: 8px;
       font-size: 11px;
       font-weight: 600;
-    }
-    .hero h1 {
-      font-size: 24px;
-      font-weight: 800;
-      line-height: 1.22;
-      letter-spacing: -0.5px;
-      margin-bottom: 6px;
-    }
-    .hero p {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 14px;
     }
 
-    /* MAIN PHOTO COVER */
-    .cover-box {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16/10;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: #131722;
+    .hero h1 {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.6px;
+      margin-bottom: 10px;
     }
-    .cover-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+    @media (min-width: 900px) {
+      .hero h1 { font-size: 38px; line-height: 1.15; }
     }
-    .cover-tag {
-      position: absolute;
-      bottom: 8px;
-      left: 8px;
-      background: rgba(9, 11, 16, 0.85);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 4px 9px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 600;
+
+    .hero p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 18px;
+      max-width: 540px;
+    }
+    @media (min-width: 900px) {
+      .hero p { font-size: 15px; margin-bottom: 24px; }
     }
 
     /* QUICK STATS */
@@ -171,50 +213,66 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 8px;
-      margin: 14px 0 20px;
+      margin-bottom: 18px;
     }
     .stat-card {
       background: var(--card);
       border: 1px solid var(--border);
-      padding: 10px 8px;
+      padding: 12px 10px;
       border-radius: 10px;
       text-align: center;
     }
     .stat-val {
       font-family: var(--mono);
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
       color: var(--text);
     }
     .stat-lbl {
-      font-size: 10px;
-      color: var(--dim);
-      margin-top: 2px;
-    }
-
-    /* SECTION TITLE */
-    .sec-title {
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: -0.2px;
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-    .sec-sub {
       font-size: 11px;
       color: var(--dim);
-      font-weight: 400;
+      margin-top: 3px;
     }
 
-    /* SPECIAL PROMO BANNER */
+    /* HERO SHOWCASE CARD (REAL PORSCHE IN WORKSHOP) */
+    .hero-cover {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/11;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #141824;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+    }
+    .hero-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .hero-cover:hover img { transform: scale(1.02); }
+    .hero-cover-tag {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(9, 11, 16, 0.88);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* PROMO BANNER */
     .promo-banner {
-      background: linear-gradient(145deg, #162033 0%, #0e1522 100%);
-      border: 1px solid #283952;
+      background: linear-gradient(135deg, #172238 0%, #0e1524 100%);
+      border: 1px solid #283956;
       border-radius: 12px;
-      padding: 14px;
-      margin-bottom: 22px;
+      padding: 16px;
+      margin-bottom: 28px;
       position: relative;
     }
     .promo-chip {
@@ -223,22 +281,22 @@
       color: #06240d;
       font-size: 10px;
       font-weight: 800;
-      padding: 2px 7px;
+      padding: 3px 8px;
       border-radius: 4px;
       text-transform: uppercase;
-      letter-spacing: 0.4px;
+      letter-spacing: 0.5px;
       margin-bottom: 8px;
     }
     .promo-name {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 700;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
     }
     .promo-desc {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--muted);
-      margin-bottom: 10px;
-      line-height: 1.35;
+      margin-bottom: 12px;
+      line-height: 1.4;
     }
     .promo-bottom {
       display: flex;
@@ -247,7 +305,7 @@
     }
     .promo-price {
       font-family: var(--mono);
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 700;
       color: #4ade80;
     }
@@ -256,39 +314,73 @@
       color: #06240d;
       font-weight: 700;
       font-size: 13px;
-      padding: 8px 14px;
+      padding: 9px 16px;
       border-radius: 8px;
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      transition: opacity 0.15s ease;
+    }
+    .promo-btn:hover { opacity: 0.9; }
+
+    /* SECTION TITLE */
+    .sec-head {
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .sec-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+    .sec-sub {
+      font-size: 12px;
+      color: var(--dim);
     }
 
-    /* INTERACTIVE CALCULATOR */
-    .calc-box {
+    /* 2-COLUMN WORKSTATION (CALC + PRICING ON DESKTOP) */
+    .workstation-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    @media (min-width: 900px) {
+      .workstation-grid {
+        grid-template-columns: 1.1fr 1fr;
+        gap: 28px;
+        align-items: start;
+      }
+    }
+
+    /* CALCULATOR */
+    .calc-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px;
-      margin-bottom: 22px;
+      border-radius: 14px;
+      padding: 18px;
     }
     .chips-label {
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--dim);
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 7px;
+      margin-bottom: 8px;
     }
     .chips {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 12px;
+      gap: 7px;
+      margin-bottom: 14px;
     }
     .chip {
-      background: #171c26;
-      border: 1px solid #232c3d;
-      padding: 7px 11px;
+      background: #171c28;
+      border: 1px solid #242e42;
+      padding: 8px 13px;
       border-radius: 8px;
       font-size: 12px;
       font-weight: 600;
@@ -296,29 +388,30 @@
       user-select: none;
       transition: all 0.15s ease;
     }
+    .chip:hover { border-color: #3b4963; }
     .chip.active {
       background: #2563eb;
       border-color: #3b82f6;
       color: #fff;
     }
     .calc-total {
-      background: #0d1017;
+      background: #0d1018;
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 10px 12px;
+      padding: 12px 14px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 10px;
-      margin-bottom: 12px;
+      margin: 12px 0 14px;
     }
     .calc-chosen {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--muted);
+      font-weight: 500;
     }
     .calc-price {
       font-family: var(--mono);
-      font-size: 17px;
+      font-size: 19px;
       font-weight: 700;
       color: var(--text);
     }
@@ -332,50 +425,18 @@
       color: #fff;
       font-weight: 700;
       font-size: 14px;
-      padding: 12px;
+      padding: 13px;
       border-radius: 10px;
-      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.25);
+      box-shadow: 0 4px 16px rgba(22, 163, 74, 0.25);
+      transition: background 0.15s ease;
     }
+    .calc-action:hover { background: #15803d; }
 
-    /* CRISP PHOTO GRID */
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-      margin-bottom: 22px;
-    }
-    .photo-item {
-      position: relative;
-      aspect-ratio: 16/11;
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: #131722;
-    }
-    .photo-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .photo-tag {
-      position: absolute;
-      bottom: 6px;
-      left: 6px;
-      background: rgba(9, 11, 16, 0.85);
-      backdrop-filter: blur(6px);
-      padding: 2px 7px;
-      border-radius: 4px;
-      font-size: 10px;
-      font-weight: 600;
-    }
-
-    /* COMPACT PRICE LIST */
+    /* PRICING LIST */
     .price-list {
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      margin-bottom: 22px;
+      gap: 8px;
     }
     .price-row {
       display: flex;
@@ -383,12 +444,14 @@
       justify-content: space-between;
       background: var(--card);
       border: 1px solid var(--border);
-      padding: 11px 13px;
+      padding: 13px 16px;
       border-radius: 10px;
-      transition: background 0.15s ease;
+      transition: all 0.15s ease;
     }
-    .price-row:active {
+    .price-row:hover {
       background: var(--card-hover);
+      border-color: var(--border-light);
+      transform: translateY(-1px);
     }
     .price-name {
       font-size: 13px;
@@ -397,75 +460,166 @@
     }
     .price-val {
       font-family: var(--mono);
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
       color: #38bdf8;
       white-space: nowrap;
+      margin-left: 12px;
     }
 
-    /* CONTACTS & LOCATION */
+    /* REAL FLEET PHOTO GRID */
+    .gallery-section {
+      margin-bottom: 32px;
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    @media (min-width: 900px) {
+      .photo-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+    }
+
+    .photo-item {
+      position: relative;
+      aspect-ratio: 4/3;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #131724;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+    .photo-item:hover img {
+      transform: scale(1.05);
+    }
+    .photo-tag {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      background: rgba(9, 11, 16, 0.88);
+      backdrop-filter: blur(8px);
+      padding: 4px 9px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* CONTACTS & MAP SECTION */
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (min-width: 900px) {
+      .contacts-grid {
+        grid-template-columns: 1.3fr 1fr;
+        gap: 24px;
+      }
+    }
+
     .contact-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px;
-      margin-bottom: 16px;
+      border-radius: 14px;
+      padding: 18px;
     }
     .contact-line {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 13px;
-      margin-bottom: 10px;
+      gap: 12px;
+      font-size: 14px;
+      margin-bottom: 12px;
       color: var(--muted);
     }
-    .contact-line:last-of-type {
-      margin-bottom: 14px;
-    }
-    .contact-line strong {
-      color: var(--text);
-    }
+    .contact-line:last-of-type { margin-bottom: 16px; }
+    .contact-line strong { color: var(--text); }
     .contact-line svg {
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       fill: var(--dim);
       flex-shrink: 0;
     }
     .map-btns {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      gap: 10px;
     }
     .btn-map {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      background: #19202e;
-      border: 1px solid #273349;
-      padding: 9px;
+      gap: 8px;
+      background: #18202e;
+      border: 1px solid #28354c;
+      padding: 11px;
       border-radius: 8px;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
       color: var(--text);
+      transition: background 0.15s ease;
+    }
+    .btn-map:hover { background: #222d42; }
+
+    .direct-contact-card {
+      background: linear-gradient(145deg, #131826 0%, #0d111a 100%);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .direct-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.45;
+      margin-bottom: 14px;
+    }
+    .btn-wa-direct {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--green);
+      color: #06240d;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 12px;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px var(--green-glow);
     }
 
     /* FOOTER */
-    .footer-note {
+    .footer {
       text-align: center;
-      font-size: 11px;
+      font-size: 12px;
       color: var(--dim);
-      padding: 8px 0 16px;
+      padding: 16px 0;
+      border-top: 1px solid #141926;
     }
 
-    /* STICKY BOTTOM BAR */
+    /* STICKY BOTTOM BAR (MOBILE ONLY) */
     .sticky-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(9, 11, 16, 0.95);
+      background: rgba(9, 11, 16, 0.96);
       backdrop-filter: blur(14px);
       border-top: 1px solid var(--border);
       padding: 10px 16px;
@@ -513,208 +667,253 @@
       height: 17px;
       fill: currentColor;
     }
+
+    @media (min-width: 900px) {
+      .sticky-bar { display: none; }
+    }
   </style>
 </head>
 <body>
 
   <!-- HEADER -->
   <header class="nav">
-    <div class="wrap nav-row">
-      <div>
-        <div class="brand-title">Фролов Сервис</div>
-        <div class="brand-sub">Видное, Центральная 30</div>
+    <div class="container nav-inner">
+      <div class="brand-wrap">
+        <div>
+          <div class="brand-title">Фролов Сервис</div>
+          <div class="brand-sub">Видное, Центральная ул., 30</div>
+        </div>
       </div>
-      <div class="status-pill">
-        <span class="dot"></span>
-        <span>До 19:00</span>
+      <div class="nav-right">
+        <div class="status-pill">
+          <span class="dot"></span>
+          <span>Ежедневно 09:00 – 19:00</span>
+        </div>
+        <a href="tel:+79055791077" class="nav-phone">+7 (905) 579-10-77</a>
+        <a href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%B2%20%D0%A4%D1%80%D0%BE%D0%BB%D0%BE%D0%B2%20%D0%A1%D0%B5%D1%80%D0%B2%D0%B8%D1%81" class="nav-wa-btn">
+          Написать в WhatsApp
+        </a>
       </div>
     </div>
   </header>
 
-  <main class="wrap">
+  <main class="container">
 
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-meta">
-        <div class="badge-rating">
-          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          <span>4.9 (309 отзывов)</span>
-        </div>
-        <div class="badge-award">Хорошее место 2026</div>
-      </div>
+      <div class="hero-grid">
+        <div>
+          <div class="hero-meta">
+            <div class="badge-rating">
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <span>4.9 (309 отзывов на Яндекс Картах)</span>
+            </div>
+            <div class="badge-award">Хорошее место 2026</div>
+          </div>
 
-      <h1>Автотехцентр в Видном</h1>
-      <p>Ремонт и ТО китайских, европейских и корейских авто. Гарантия и оригинальные расходники.</p>
+          <h1>Автотехцентр в Видном</h1>
+          <p>Честный ремонт и регламентное ТО китайских, европейских и корейских авто. Оригинальные расходники, специализированный инструмент и гарантия.</p>
 
-      <div class="cover-box">
-        <img src="assets/workshop.jpg" alt="Цех Фролов Сервис">
-        <div class="cover-tag">Слесарный цех • Центральная 30</div>
-      </div>
+          <div class="quick-stats">
+            <div class="stat-card">
+              <div class="stat-val">4.9 ★</div>
+              <div class="stat-lbl">309 оценок</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-val">1 500 ₽</div>
+              <div class="stat-lbl">Кондиционер</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-val">09–19</div>
+              <div class="stat-lbl">Без выходных</div>
+            </div>
+          </div>
 
-      <div class="quick-stats">
-        <div class="stat-card">
-          <div class="stat-val">4.9 ★</div>
-          <div class="stat-lbl">309 отзывов</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-val">1 500 ₽</div>
-          <div class="stat-lbl">Кондиционер</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-val">09–19</div>
-          <div class="stat-lbl">Ежедневно</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROMO -->
-    <section>
-      <div class="promo-banner">
-        <span class="promo-chip">Спецпредложение</span>
-        <div class="promo-name">ТО CHANGAN с маслом ZIC TOP</div>
-        <div class="promo-desc">Оригинальные фильтры + 5 л масла ZIC 5W-30 + работа мастера.</div>
-        <div class="promo-bottom">
-          <div class="promo-price">9 999 ₽</div>
-          <a href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%A2%D0%9E%20Changan%20%D0%B7%D0%B0%209999%D1%80" class="promo-btn">
-            Записаться
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CALCULATOR -->
-    <section>
-      <div class="sec-title">
-        <span>Экспресс-расчёт</span>
-        <span class="sec-sub">в 2 клика</span>
-      </div>
-
-      <div class="calc-box">
-        <div class="chips-label">Марка:</div>
-        <div class="chips" id="bGrid">
-          <div class="chip active" data-b="Changan">Changan</div>
-          <div class="chip" data-b="Geely / Chery">Geely / Chery</div>
-          <div class="chip" data-b="Haval / Tank">Tank / Haval</div>
-          <div class="chip" data-b="VAG / BMW">VAG / BMW</div>
-          <div class="chip" data-b="Kia / Hyundai">Kia / Hyundai</div>
-          <div class="chip" data-b="Другое">Другое</div>
+          <!-- PROMO BANNER -->
+          <div class="promo-banner">
+            <span class="promo-chip">Флагманское предложение</span>
+            <div class="promo-name">ТО CHANGAN с маслом ZIC TOP 5W-30</div>
+            <div class="promo-desc">Комплект оригинальных фильтров, 5 л масла ZIC TOP + работа мастера под ключ.</div>
+            <div class="promo-bottom">
+              <div class="promo-price">9 999 ₽</div>
+              <a href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%A2%D0%9E%20Changan%20%D0%B7%D0%B0%209999%D1%80" class="promo-btn">
+                Записаться в 1 клик
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div class="chips-label">Услуга:</div>
-        <div class="chips" id="sGrid">
-          <div class="chip active" data-s="Плановое ТО" data-p="от 6 000 ₽">Плановое ТО</div>
-          <div class="chip" data-s="Заправка кондиционера" data-p="1 500 ₽">Кондиционер</div>
-          <div class="chip" data-s="Компьютерная диагностика" data-p="1 000 ₽">Диагностика</div>
-          <div class="chip" data-s="Ремонт подвески" data-p="от 2 000 ₽">Подвеска</div>
-          <div class="chip" data-s="Капитальный ремонт ДВС" data-p="от 25 000 ₽">Ремонт ДВС</div>
-          <div class="chip" data-s="Вскрытие замка авто" data-p="5 000 ₽">Вскрытие авто</div>
+        <!-- HERO SHOWCASE (REAL PORSCHE 911 GT3 IN FROLOV WORKSHOP) -->
+        <div class="hero-cover">
+          <img src="assets/porsche.jpg" alt="Porsche 911 GT3 в боксе Фролов Сервис">
+          <div class="hero-cover-tag">Фролов Сервис • Цех на Центральной 30</div>
         </div>
-
-        <div class="calc-total">
-          <span class="calc-chosen" id="cText">Changan • Плановое ТО</span>
-          <span class="calc-price" id="cPrice">от 6 000 ₽</span>
-        </div>
-
-        <a id="cLink" href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F:%20Changan%20%E2%80%A2%20%D0%9F%D0%BB%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%A2%D0%9E" class="calc-action">
-          <span>Записаться в WhatsApp</span>
-          <svg style="width:16px;height:16px;fill:currentColor;" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
       </div>
     </section>
 
-    <!-- PHOTO GALLERY -->
+    <!-- WORKSTATION: CALCULATOR & PRICING -->
     <section>
-      <div class="sec-title">
-        <span>Автомобили в боксах</span>
-        <span class="sec-sub">фото сервиса</span>
+      <div class="workstation-grid">
+
+        <!-- CALCULATOR -->
+        <div>
+          <div class="sec-head">
+            <h2 class="sec-title">Экспресс-расчёт стоимости</h2>
+            <span class="sec-sub">в 2 клика</span>
+          </div>
+
+          <div class="calc-card">
+            <div class="chips-label">Марка автомобиля:</div>
+            <div class="chips" id="bGrid">
+              <div class="chip active" data-b="Changan">Changan</div>
+              <div class="chip" data-b="Geely / Chery">Geely / Chery</div>
+              <div class="chip" data-b="Tank / Haval">Tank / Haval</div>
+              <div class="chip" data-b="VAG / BMW">VAG / BMW</div>
+              <div class="chip" data-b="Mercedes-Benz">Mercedes</div>
+              <div class="chip" data-b="Kia / Hyundai">Kia / Hyundai</div>
+              <div class="chip" data-b="Другое авто">Другое</div>
+            </div>
+
+            <div class="chips-label">Необходимая услуга:</div>
+            <div class="chips" id="sGrid">
+              <div class="chip active" data-s="Плановое ТО" data-p="от 6 000 ₽">Плановое ТО</div>
+              <div class="chip" data-s="Заправка кондиционера" data-p="1 500 ₽">Кондиционер</div>
+              <div class="chip" data-s="Компьютерная диагностика" data-p="1 000 ₽">Диагностика</div>
+              <div class="chip" data-s="Ремонт подвески" data-p="от 2 000 ₽">Подвеска</div>
+              <div class="chip" data-s="Капитальный ремонт ДВС" data-p="от 25 000 ₽">Ремонт ДВС</div>
+              <div class="chip" data-s="Вскрытие замка авто" data-p="5 000 ₽">Вскрытие авто</div>
+            </div>
+
+            <div class="calc-total">
+              <span class="calc-chosen" id="cText">Changan • Плановое ТО</span>
+              <span class="calc-price" id="cPrice">от 6 000 ₽</span>
+            </div>
+
+            <a id="cLink" href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F:%20Changan%20%E2%80%A2%20%D0%9F%D0%BB%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%A2%D0%9E" class="calc-action">
+              <span>Записаться в WhatsApp</span>
+              <svg style="width:16px;height:16px;fill:currentColor;" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- PRICING LIST -->
+        <div>
+          <div class="sec-head">
+            <h2 class="sec-title">Цены на услуги</h2>
+            <span class="sec-sub">фиксированный прайс</span>
+          </div>
+
+          <div class="price-list">
+            <a href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D0%BE%D1%81%D1%82%D0%B3%D0%B0%D1%80%D0%B0%D0%BD%D1%82%D0%B8%D0%B9%D0%BD%D0%BE%D0%B5%20%D0%A2%D0%9E" class="price-row">
+              <span class="price-name">Постгарантийное обслуживание (ТО)</span>
+              <span class="price-val">от 6 001 ₽</span>
+            </a>
+
+            <a href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%A2%D0%9E%20Changan%20%D1%81%20%D0%BC%D0%B0%D1%81%D0%BB%D0%BE%D0%BC%20ZIC" class="price-row">
+              <span class="price-name">ТО CHANGAN с маслом ZIC TOP 5W-30</span>
+              <span class="price-val">9 999 ₽</span>
+            </a>
+
+            <a href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%97%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B0%20%D0%B8%20%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0%20%D0%BA%D0%BE%D0%BD%D0%B4%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D1%80%D0%B0" class="price-row">
+              <span class="price-name">Заправка и диагностика кондиционера</span>
+              <span class="price-val">1 500 ₽</span>
+            </a>
+
+            <a href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D1%83%D0%B6%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BC%D0%BF%D1%8C%D1%8e%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D1%8F%20%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0" class="price-row">
+              <span class="price-name">Компьютерная диагностика узлов</span>
+              <span class="price-val">1 000 ₽</span>
+            </a>
+
+            <a href="https://wa.me/79055791077?text=%D0%A1%D1%80%D0%BE%D1%87%D0%BD%D0%BE!%20%D0%9D%D1%83%D0%B6%D0%BD%D0%BE%20%D0%B2%D1%81%D0%BA%D1%80%D1%8B%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C" class="price-row">
+              <span class="price-name">Вскрытие авто без повреждений</span>
+              <span class="price-val">5 000 ₽</span>
+            </a>
+
+            <a href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9A%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BF%D0%BE%20%D0%BA%D0%B0%D0%BF%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%D1%83%20%D0%B4%D0%B2%D0%B8%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8F" class="price-row">
+              <span class="price-name">Капитальный ремонт двигателя</span>
+              <span class="price-val">от 25 000 ₽</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- REAL WORKSHOP PHOTO GALLERY -->
+    <section class="gallery-section">
+      <div class="sec-head">
+        <h2 class="sec-title">Автомобили в боксах сервиса</h2>
+        <span class="sec-sub">реальные фото с Центральной 30</span>
       </div>
 
       <div class="photo-grid">
         <div class="photo-item">
-          <img src="assets/tank.jpg" alt="Tank 300">
+          <img src="assets/tank.jpg" alt="Tank 300 в сервисе Фролов">
           <div class="photo-tag">Tank 300</div>
         </div>
         <div class="photo-item">
-          <img src="assets/changan.jpg" alt="Changan UNI-K">
-          <div class="photo-tag">Changan UNI-K</div>
+          <img src="assets/porsche.jpg" alt="Porsche 911 GT3 в боксе">
+          <div class="photo-tag">Porsche 911 GT3</div>
         </div>
         <div class="photo-item">
-          <img src="assets/bmw.jpg" alt="BMW">
-          <div class="photo-tag">BMW M4</div>
+          <img src="assets/bmw.jpg" alt="BMW M-серии в боксе">
+          <div class="photo-tag">BMW M3/M4</div>
         </div>
         <div class="photo-item">
-          <img src="assets/porsche.jpg" alt="Porsche">
-          <div class="photo-tag">Porsche 911</div>
+          <img src="assets/mercedes.jpg" alt="Mercedes GLE Coupe в ремонте">
+          <div class="photo-tag">Mercedes GLE Coupe</div>
         </div>
-      </div>
-    </section>
-
-    <!-- PRICE LIST -->
-    <section>
-      <div class="sec-title">
-        <span>Цены на услуги</span>
-        <span class="sec-sub">фиксированный прайс</span>
-      </div>
-
-      <div class="price-list">
-        <a href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D0%BE%D1%81%D1%82%D0%B3%D0%B0%D1%80%D0%B0%D0%BD%D1%82%D0%B8%D0%B9%D0%BD%D0%BE%D0%B5%20%D0%A2%D0%9E" class="price-row">
-          <span class="price-name">Постгарантийное обслуживание (ТО)</span>
-          <span class="price-val">от 6 001 ₽</span>
-        </a>
-
-        <a href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%A2%D0%9E%20Changan%20%D1%81%20%D0%BC%D0%B0%D1%81%D0%BB%D0%BE%D0%BC%20ZIC" class="price-row">
-          <span class="price-name">ТО CHANGAN с маслом ZIC TOP 5W-30</span>
-          <span class="price-val">9 999 ₽</span>
-        </a>
-
-        <a href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%97%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B0%20%D0%B8%20%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0%20%D0%BA%D0%BE%D0%BD%D0%B4%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D1%80%D0%B0" class="price-row">
-          <span class="price-name">Заправка и диагностика кондиционера</span>
-          <span class="price-val">1 500 ₽</span>
-        </a>
-
-        <a href="https://wa.me/79055791077?text=%D0%A1%D1%80%D0%BE%D1%87%D0%BD%D0%BE!%20%D0%9D%D1%83%D0%B6%D0%BD%D0%BE%20%D0%B2%D1%81%D0%BA%D1%80%D1%8B%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C" class="price-row">
-          <span class="price-name">Вскрытие авто без повреждений</span>
-          <span class="price-val">5 000 ₽</span>
-        </a>
-
-        <a href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9A%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BF%D0%BE%20%D0%BA%D0%B0%D0%BF%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%D1%83%20%D0%B4%D0%B2%D0%B8%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8F" class="price-row">
-          <span class="price-name">Капитальный ремонт двигателя</span>
-          <span class="price-val">от 25 000 ₽</span>
-        </a>
       </div>
     </section>
 
     <!-- CONTACTS -->
     <section>
-      <div class="sec-title">
-        <span>Контакты</span>
+      <div class="sec-head">
+        <h2 class="sec-title">Контакты и схема проезда</h2>
       </div>
 
-      <div class="contact-card">
-        <div class="contact-line">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          <div><strong>г. Видное</strong>, Центральная ул., 30</div>
+      <div class="contacts-grid">
+        <div class="contact-card">
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <div><strong>г. Видное</strong>, Центральная улица, 30</div>
+          </div>
+
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            <div>График работы: <strong>ежедневно 09:00 – 19:00</strong></div>
+          </div>
+
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <div>Телефоны: <strong>+7 (905) 579-10-77</strong> &bull; +7 (901) 420-91-34</div>
+          </div>
+
+          <div class="map-btns">
+            <a href="https://yandex.ru/maps/org/frolov_servis/1780546906/" target="_blank" class="btn-map">Открыть в Яндекс Картах</a>
+            <a href="https://yandex.ru/navi/?whatshere%5Bpoint%5D=37.722805%2C55.559865&whatshere%5Bzoom%5D=17" target="_blank" class="btn-map">Построить маршрут</a>
+          </div>
         </div>
 
-        <div class="contact-line">
-          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-          <div>Ежедневно <strong>09:00 – 19:00</strong></div>
-        </div>
-
-        <div class="map-btns">
-          <a href="https://yandex.ru/maps/org/frolov_servis/1780546906/" target="_blank" class="btn-map">Яндекс Карты</a>
-          <a href="https://yandex.ru/navi/?whatshere%5Bpoint%5D=37.722805%2C55.559865&whatshere%5Bzoom%5D=17" target="_blank" class="btn-map">Навигатор</a>
+        <div class="direct-contact-card">
+          <div>
+            <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Быстрая запись на сервис</div>
+            <p class="direct-desc">Напишите мастеру в WhatsApp марку автомобиля и причину обращения — рассчитаем стоимость и подберём удобное окно.</p>
+          </div>
+          <a href="https://wa.me/79055791077?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BE%D0%B1%D1%81%D0%BB%D1%83%D0%B6%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8F" class="btn-wa-direct">
+            Написать в WhatsApp (+7 905 579-10-77)
+          </a>
         </div>
       </div>
 
-      <div class="footer-note">
-        Фролов Сервис &bull; Видное, Центральная 30
+      <div class="footer">
+        Фролов Сервис &bull; г. Видное, Центральная улица, 30 &bull; 09:00–19:00 ежедневно
       </div>
     </section>
 
   </main>
 
-  <!-- STICKY ACTION BAR -->
+  <!-- STICKY ACTION BAR (MOBILE ONLY) -->
   <div class="sticky-bar">
     <div class="sticky-inner">
       <a href="tel:+79055791077" class="btn-call">
